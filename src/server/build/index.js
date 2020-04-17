@@ -404,9 +404,11 @@ webpackContext.id = "./src sync recursive ^\\.\\/(schema|schema\\/index)\\.(gql|
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // TODO: Import Mongoose here
+var mongoose = __webpack_require__(/*! mongoose */ "mongoose");
 // TODO: Connect to mongo here
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true}); 
 // TODO: Replace `{}` with actual Movie model
-const Movie = {};
+const Movie = mongoose.model('Movie', new mongoose.Schema({title: String}));
 
 const getMovieList = async () => {
   return await Movie.find({});
